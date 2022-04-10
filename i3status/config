@@ -1,0 +1,67 @@
+# General Configuration
+general {
+        colors = true
+        interval = 1
+	color_good = "#8ec07c"
+        color_degraded = "#fabd2f"
+        color_bad = "#fb4934"
+}
+
+# Ordering
+order += "volume master"
+# order += "ipv6"
+order += "wireless _first_"
+order += "ethernet _first_"
+# order += "battery all"
+# order += "disk /"
+# order += "load"
+order += "memory"
+order += "tztime local"
+
+# Volume Status
+volume master {
+    format = "🎧 V: %volume"
+    format_muted = "🔇 V: muted (%volume)"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
+
+# Wifi Status
+wireless _first_ {
+        format_up = "📡 W: (%quality, %bitrate)"
+        format_down = "🔒 W: (disconnected)"
+}
+
+# Ethernet Status
+ethernet _first_ {
+        format_up = "🔌 E: (%speed)"
+        format_down = "🔌 E: (disconnected)"
+}
+
+# Battery Status
+battery all {
+        format = "%status %percentage %remaining"
+}
+
+# Disk Usage Status
+disk "/" {
+        format = "%avail"
+}
+
+# CPU Load Status
+load {
+        format = "%1min"
+}
+
+# Memory Status
+memory {
+        format = "💾 %used / %available"
+        threshold_degraded = "1G"
+        format_degraded = "MEMORY < %available"
+}
+
+# Time Status
+tztime local {
+        format = "🗓️ %a. %d-%m-%Y / ⏰ %I:%M:%S %p"
+}
